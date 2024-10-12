@@ -12,7 +12,7 @@ class Hero():
     def attack(self, target):
         target.health -= self.attack_power
 
-    det is_alive(self):
+    def is_alive(self):
         return self.health > 0
 
 class Game():
@@ -41,7 +41,7 @@ class Game():
                 print(f'У {self.player.name} осталось {self.player.health} жизней')
                 initiator = self.computer
 
-            else initiator == self.computer:
+            else:
                 self.computer.attack(self.player)
                 print(f'Игрок {self.computer.name} атаковал {self.player.name}')
                 print(f'У {self.computer.name} осталось {self.computer.health} жизней')
@@ -55,3 +55,9 @@ class Game():
         else:
             print(f'Победил {self.computer.name}')
             print(f'Осталось жизней {self.computer.health}')
+
+
+hero = Hero('Бесшумный ливень', 100, 20)
+computer = Hero('Капля огня', 100, 20)
+game = Game(hero, computer)
+game.start()
